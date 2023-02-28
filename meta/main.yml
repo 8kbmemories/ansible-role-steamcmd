@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  role_name: steamcmd
+  author: 8kbmemories
+  description: Install the SteamCMD the command-line version of the Steam client.
+  license: license (BSD, MIT)
+
+  min_ansible_version: '2.4'
+
+  platforms:
+    - name: Debian
+      versions:
+        - bullseye
+
+  galaxy_tags:
+    - steamcmd
+
+dependencies: []

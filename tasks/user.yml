@@ -1,0 +1,6 @@
+---
+- name: Create account without root privileges
+  ansible.builtin.user:
+    name: "{{ steamcmd_account_name }}"
+    shell: /bin/bash
+    state: present

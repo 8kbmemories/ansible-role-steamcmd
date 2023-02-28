@@ -1,0 +1,36 @@
+---
+- name: Update distribution repositories (Debian 11 Only)
+  ansible.builtin.replace:
+    path: /etc/apt/sources.list
+    regexp: 'main$'
+    replace: 'main contrib non-free'
+  when: ansible_distribution == 'Debian' and ansible_distribution_version is version('11', '=')
+
+- name: Install software-properties-common
+  ansible.builtin.apt:
+    name: software-properties-common
+    update_cache: true
+    state: present
+
+- name: Add i386 architecture
+  ansible.builtin.lineinfile:
+    path: /var/lib/dpkg/arch
+    state: present
+    create: true
+    insertafter: EOF
+    line: i386
+
+- name: Accept steam licence
+  ansible.builtin.debconf:
+    name: steamcmd
+    question: steam/question
+    value: 'I AGREE'
+    vtype: select
+
+- name: Install packages
+  ansible.builtin.apt:
+    pkg:
+      - lib32gcc-s1
+      - steamcmd
+    update_cache: true
+    state: present
