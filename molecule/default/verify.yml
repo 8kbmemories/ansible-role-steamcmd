@@ -1,0 +1,17 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Run steamcmd as steam user
+    ansible.builtin.command: /usr/games/steamcmd +quit
+    become: true
+    become_user: steam
+    become_method: sudo
+    register: steamcmd_result
+    changed_when: steamcmd_result.rc != 0
+
+  - name: Verify steamcmd works
+    ansible.builtin.assert:
+      that:
+        - "'Loading Steam API...OK' in steamcmd_result.stdout"
