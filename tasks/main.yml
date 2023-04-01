@@ -1,3 +1,15 @@
 ---
-- include: install.yml
-- include: user.yml
+- name: Setup Debian
+  ansible.builtin.include_tasks: setup-Debian.yml
+  when: ansible_distribution == 'Debian'
+
+- name: Setup Ubuntu
+  ansible.builtin.include_tasks: setup-Ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Installation
+  ansible.builtin.include_tasks: install.yml
+
+- name: Create dedicated user
+  ansible.builtin.include_tasks: user.yml
+  when: steamcmd_create_account

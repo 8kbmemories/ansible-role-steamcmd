@@ -1,0 +1,16 @@
+---
+- name: Install lib32gcc1
+  ansible.builtin.apt:
+    pkg:
+      - lib32gcc1
+    update_cache: true
+    state: present
+  when: ansible_distribution_version is version('20.04', '<')
+
+- name: Install lib32gcc-s1
+  ansible.builtin.apt:
+    pkg:
+      - lib32gcc-s1
+    update_cache: true
+    state: present
+  when: ansible_distribution_version is version('20.04', '>=')

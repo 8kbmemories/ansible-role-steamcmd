@@ -3,4 +3,6 @@
   ansible.builtin.user:
     name: "{{ steamcmd_account_name }}"
     shell: /bin/bash
+    groups: games
+    append: true
     state: present

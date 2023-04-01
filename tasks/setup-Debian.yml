@@ -1,0 +1,13 @@
+---
+- name: Update distribution repositories
+  ansible.builtin.apt_repository:
+    repo: "deb http://deb.debian.org/debian {{ ansible_distribution_release }} main contrib non-free"
+    state: present
+
+- name: Install lib32gcc-s1 
+  ansible.builtin.apt:
+    pkg:
+      - lib32gcc-s1
+    update_cache: true
+    state: present
+  when: ansible_distribution_version is version('11', '=')
