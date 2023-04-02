@@ -24,6 +24,8 @@ Here is an example playbook that uses this role:
 
 ```yaml
 - hosts: all
+  become: true
+  gather_facts: true
   roles:
     - 8kbmemories.steamcmd
 ```
