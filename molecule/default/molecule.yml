@@ -4,7 +4,7 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance_${MOLECULE-DISTRO}
+  - name: instance_${MOLECULE-DISTRO:-debian11}
     image: geerlingguy/docker-${MOLECULE-DISTRO:-debian11}-ansible:latest
     platform: linux/amd64
     pre_build_image: true
