@@ -1,6 +1,6 @@
 # Ansible Role: SteamCMD
 
-[![Molecule CI](https://github.com/8kbmemories/steamcmd-ansible/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/8kbmemories/steamcmd-ansible/actions/workflows/ci.yml)
+[![Molecule CI](https://github.com/8kbmemories/steamcmd-ansible/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/8kbmemories/steamcmd-ansible/actions/workflows/ci.yml)
 
 This Ansible role installs [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) on a target system and optionally creates a user to run it with limited privileges.
 
