@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Include steamcmd-ansible"
+    - name: "Include ansible-role-steamcmd"
       ansible.builtin.include_role:
-        name: "steamcmd-ansible"
+        name: "ansible-role-steamcmd"

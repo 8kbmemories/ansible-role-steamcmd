@@ -20,6 +20,6 @@ galaxy_info:
   galaxy_tags:
     - steamcmd
     - steam
-    - game-server
+    - game
 
 dependencies: []
